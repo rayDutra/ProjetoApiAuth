@@ -1,0 +1,23 @@
+services:
+    mysql:
+        container_name: core_auth
+        image: mysql:latest
+        environment:
+            MYSQL_ROOT_PASSWORD: rootpassword
+            MYSQL_DATABASE: core_auth
+            MYSQL_USER: username
+            MYSQL_PASSWORD: password
+        ports:
+            - "3309:3306"
+        volumes:
+            - mysql_data:/var/lib/mysql
+        networks:
+            - mysql_network
+        restart: unless-stopped
+
+networks:
+    mysql_network:
+
+volumes:
+    mysql_data:
+        driver: local

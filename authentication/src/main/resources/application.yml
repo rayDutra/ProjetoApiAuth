@@ -1,0 +1,20 @@
+jwt:
+    secret: mySecretKeyHere
+    expirationMs: 3600000
+
+spring:
+    datasource:
+        url: jdbc:mysql://localhost:3309/core_auth
+        username: username
+        password: password
+        hikari:
+            poolName: HikariCP
+            maximumPoolSize: 5
+    jpa:
+        hibernate:
+            ddl-auto: update
+        database-platform: org.hibernate.dialect.MySQLDialect
+        show-sql: true
+
+server:
+    port: 8083
